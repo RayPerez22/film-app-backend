@@ -3,9 +3,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
 const cors = require('cors');
-const filmsController = require('./controllers/films.js');
+const filmsController = require('./controllers/filmspro.js');
 
-const Films = require('./models/films.js')
+const Films = require('./models/filmspro.js')
 const filmData = require('./utilities/filmsData')
 
 // Environment Variables
@@ -23,9 +23,6 @@ mongoose.connect(mongoURI, { useNewUrlParser: true },
 //Error / Disconnection
 db.on('error', err => console.log(err.message + ' is Mongod not running?'))
 db.on('disconnected', () => console.log('mongo disconnected'))
-
-
-
 
 // Middleware
 app.use(express.urlencoded({ extended: false }))// extended: false - does not allow nested objects in query strings
