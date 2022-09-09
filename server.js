@@ -33,16 +33,13 @@ app.use(cors())
 // Routes
 app.use('/films', filmsController)
 
+app.use(express.json())
+
 app.get('/seed', async (req, res) => {
   await Films.deleteMany({});
   await Films.insertMany(filmData);
   res.send('done!');
 });
-
-
-// app.listen(PORT, () => {
-//     console.log('Let\'s get things done on port', PORT)
-//   })
 
   app.listen(PORT, () => {
     console.log(`*** Listening on http://localhost:${PORT} ***`)
