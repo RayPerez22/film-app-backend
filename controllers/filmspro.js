@@ -9,20 +9,7 @@ router.get('/', (req, res) => {
         res.json(foundFilms)
     })
 });
-// New - Will be handled by React application
-//delete
-// router.delete('/:id', (req, res) => {
-//     Films.findByIdAndRemove(req.params.id, (err, deletedFilm) => {
-//         res.json(deletedFilm);
-//     });
-// });
 
-// //update
-// router.put('/:id', (req, res) => {
-//     Films.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedFilm) => {
-//         res.json(updatedFilm);
-//     });
-// });
 
 //create
 router.post('/', (req, res) => {
@@ -38,7 +25,7 @@ router.put('/addfilms', (req, res) => {
             req.body.id,
             { $push: { fav_films: req.body.film } }
             , (err, docs) => { console.log(req.body.id, req.body.film) }
-            // { new: true }
+            
         )
     } catch (error) {
         console.log(error)
